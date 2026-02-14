@@ -1,0 +1,6 @@
+juan@example.com
+maria@dominio.org
+555-123-4567
+texto_invalido
+otro@correo
+123-456-7890

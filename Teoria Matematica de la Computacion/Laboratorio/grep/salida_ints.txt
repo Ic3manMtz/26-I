@@ -1,0 +1,13 @@
+        int maxUsuarios = 120;
+        int puertoHttp = 8080;
+        int reintentos = 3;
+        final int LIMITE = 999;
+        final int TIMEOUT_MS = 1500;
+        int[] tamanios = {8, 16, 32, 64};
+        int total = 10 + 5 * 2 - 3 / 1;
+        int mod = 17 % 3;
+        boolean esValido = (total >= 10) && (reintentos < 5) || !activo;
+            System.out.println("Puerto permitido");
+            System.out.println("Capacidad: " + maxUsuarios);
+            int x = 10 / 0; // division por cero
+            System.err.println("ERROR: " + e.getMessage());

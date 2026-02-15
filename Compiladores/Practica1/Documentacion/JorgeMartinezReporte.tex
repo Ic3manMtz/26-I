@@ -1,0 +1,161 @@
+%%%%%%   TIPO DE DOCUMENTO: Artículo   %%%%%%
+\documentclass[letterpaper,11pt,twoside]{report}
+
+\usepackage[spanish]{babel} %Idioma
+\usepackage{graphicx} %Imágenes
+\usepackage[utf8]{inputenc} %Acentos
+\usepackage{hyperref} %Links
+\usepackage{xspace}
+
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage{amsmath, amssymb}
+\usepackage{amsmath}
+\usepackage[active]{srcltx}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{makeidx}
+\usepackage{amsthm}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{plantuml}
+\usepackage{float}
+\usepackage{caption}
+\renewcommand{\baselinestretch}{1}
+\setcounter{page}{1}
+\setlength{\textheight}{21.6cm}
+\setlength{\textwidth}{14cm}
+\setlength{\oddsidemargin}{1cm}
+\setlength{\evensidemargin}{1cm}
+\pagestyle{myheadings}
+\captionsetup[figure]{position=below, skip=0pt}
+\thispagestyle{empty}
+\markboth{\small{Práctica 1, Jorge Martinez.}}{\small{.}}
+\date{}
+
+\begin{document}
+	\centerline{\bf Compiladores, \today}
+	\centerline{}
+	\begin{center}
+		\Large{\textsc{}}
+	\end{center}
+	
+	\centerline{}
+	\centerline{\textbf{Martínez Buenrostro Jorge Rafael}}
+	\centerline{}
+	
+	\centerline{$correo, cbi2203040824@izt.uam.mx$}
+	
+	\centerline{Universidad Aut\'onoma Metropolitana} 
+	\centerline{Unidad Iztapalapa, M\'exico}
+	
+	
+	\section*{Ejemplo de análisis léxico sobre un archivo Java}
+	\begin{itemize}
+		\item \textbf{Expresión regular: [a-z]} Este patrón reconoce cualquier carácter individual que sea una letra entre la 'a' y la 'z' minúscula. En la siguiente imagen se puede ver la salida en la que se puede ver una lista de todos los caracteres que son letras minúsculas en el archivo en orden de aparición.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.9\textwidth]{img/ERaz.png}
+		\end{figure}
+		
+		\item \textbf{Expresión regular: [a-z][a-z]} Este patrón reconoce pares de caracteres en el que ambos son cualquier letra entre la 'a' y la 'z' minúsculas. En la siguiente imagen se puede ver la salida en la que se puede ver una lista de todas las letras minúsculas entre la 'a' y la 'z' del archivo agrupadas en pares. 
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.9\textwidth]{img/ERazaz.png}
+		\end{figure}		
+		
+		\item \textbf{Expresión regular: [a-z]+} Este patrón busca una o más letras minúsculas consecutivas, sin mayúsculas, números ni otros caracteres). En la salida podemos ver las "palabras" que se encuentran en el archivo que tienen letras minúsculas o todas las letras minúsculas de una palabra sin contar las mayúsculas, números o otros caracteres.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.9\textwidth]{img/ERaz+.png}
+		\end{figure}
+		
+		\item \textbf{Expresión regular: [A-Z][a-z]+} El patrón busca palabras que comienzan con una letra mayúscula seguida de una o más letras minúsculas. En la salida podemos ver todas las palabras que cumplen con este patrón dentro del archivo
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.4\textwidth]{img/ERAZaz+.png}
+		\end{figure}
+		
+		\item \textbf{Expresión regular: [A-Za-z][A-Za-z0-9\_]*} El patrón busca una letra seguida de cero o más caracteres que pueden ser letras, dígitos o espacios.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.9\textwidth]{img/ERAZazAZaz09.png}
+		\end{figure}
+		
+		\item \textbf{Expresión regular: $<=|>=|<|>$} El patrón busca los operadores relacionales $<=|>=|<|>$ dentro del archivo Java
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.2\textwidth]{img/ERLogic.png}
+		\end{figure}
+	\end{itemize}
+	
+	\section*{Reconocimiento de elementos de un programa en C}
+	Para poder identificar y clasificar siguiente elementos léxicos se usaron las siguientes expresiones regulares:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.9\textwidth]{img/ERPython.png}
+	\end{figure}
+	
+	\subsection*{Identificadores}
+	La expresión regular la podemos dividir en tres partes: inicio de la cadena, contenido y fin de la cadena.
+	\begin{enumerate}
+		\item \textbf{Inicio de la cadena} $(?<=[\;\backslash t])$ Quiere decir que aceptamos la cadena si antes de la cadena hay un espacio o un tabulador.
+		\item \textbf{Contenido} $[A-Za-z_][A-Za-z0-9_]*$ Aceptamos cualquier cadena que empiece con alguna letra (minúscula o mayúscula) seguida de cero o más repeticiones de letras (minúsculas o mayúsculas), dígitos o guión bajo.
+		\item \textbf{Fin de la cadena} $(?=[\;,;])$ Aceptamos la cadena si el caracter después del final es un espacio, una coma o un punto y coma.
+	\end{enumerate}
+	\subsection*{Número entero}
+	Para los números enteros se reutilizó el inicio y fin de cadena de los identificadores. Solo se modifica el contenido deseado con $\backslash d+$ lo que significa que el contenido tiene al menos un dígito
+	
+	\subsection*{Número real}
+	La expresión regular para los números reales tiene la siguiente forma $[0-9]+\backslash .[0-9]+$. Esta expresión indica que un número real comienza con al menos un dígito seguido por un punto y termina con al menos un dígito.
+	
+	\subsection*{Cadena delimitada por comillas dobles}
+	La expresión regular para las cadenas delimitadas por comillas dobles es \verb|"[^"]*"|.  Esta expresión nos dice que las cadenas inician y terminan con comillas dobles, el detalle está en \verb*|[^"]|, esto nos indica que se acepta cualquier carácter excepto una comilla doble.
+	
+	\subsection*{Comentario en una línea}
+	El caso del comentario en una línea es similar al anterior en el que indicamos como inicia la cadena aceptada y ponemos una restricción al contenido. En este caso queda \verb*|//[^\n]*| lo que significa que aceptamos que empiece con //; sin embargo, para el contenido no aceptamos el carácter para le salto de línea \verb*|\n|
+		
+	\subsection*{Comentario multilínea}
+	Este es un caso similar a los números reales. La expresión regular es \verb*|/\*.*?\*/| nos indica que la cadena puede empezar con \verb*|/\*|, para luego poder aceptar cualquier carácter cero o más veces, pero lo mínimo posible deteniendo en la primera coincidencia que se encuentra \verb*|.*?|, para terminar con \verb*|\*/|
+	
+	\subsection*{Operador aritmético}
+	Creamos una clase que contiene todos los símbolos de los operadores lógicos. Por lo que la expresión regular resultante es \verb*|[+\-*/%=]|
+	
+	\subsection*{Operador relacional}
+	Se crea una expresión regular que contenga los símbolos de los operadores relaciones para que resulte de esta manera \verb*+<=|>=|<|>+
+	
+	\subsection*{Operador lógico}
+	Al igual que con los operadores relaciones solo agregamos los símbolos de los operadores lógicos de tal modo que la expresión regular resultante es \verb*+&&|\|\|+
+	
+	Por último esta es la salida al ejecutar el código en python
+	
+	 \begin{figure}[H]
+	 	\centering
+	 	\includegraphics[width=0.99\textwidth]{img/SalidaPythonC.png}
+	 \end{figure}
+
+	\section*{Expresiones regulares en BASH}
+	Para esta sección se desarrolló un script en BASH para mostrar las particiones cuyo uso de disco sea mayor o igual a 80\%. El script muestra el uso de disco del sistema utilizando el comando \texttt{df -h}, usa expresiones regulares para identificar los porcentajes de uso de disco en la salida del comando y al final filtra y muestra únicamente las particiones cuyo uso de disco sea mayot o igual al 80\%.
+	
+	\begin{itemize}
+		\item La salida del comando \texttt{df -h} nos muestra el uso de disco del sistema como se puede ver en la siguiente imagen.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.8\textwidth]{img/BashDF.png}
+		\end{figure}
+		
+		\item La expresión regular creada para poder identificar las líneas en las que hay porcentajes es \verb*+df -h | grep -E "[0-9]{1,3}%"+. Esta expresión busca números que tengan entre 1 y 3 dígitos seguidos del símbolo \%.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.8\textwidth]{img/BashPercentage.png}
+		\end{figure}
+		
+		\item Para obtener las particiones que tienen uso de disco del sistema mayor o igual al 80\% es \verb*+df -h | grep -E  "([8-9][0-9]|100)%"+
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.8\textwidth]{img/Bash80.png}
+		\end{figure}
+		
+	\end{itemize}
+	
+\end{document}

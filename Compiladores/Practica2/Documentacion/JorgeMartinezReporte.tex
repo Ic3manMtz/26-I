@@ -517,6 +517,364 @@ return 0;
 \}
 	\end{lstlisting}
 	
+	\newpage
+	
+	\section*{Pruebas de código}
+
+	\subsection*{Autómata 1}
+	El primer paso es tener la lista de cadenas que pertenecen al lenguaje. $L=\{b,ab,ba,aba,aaba,aabaa\}$, ahora se prueba una a una las cadenas en el programa.
+
+	\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a11.png}
+        \caption*{Prueba con 'b'}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a12.png}
+        \caption*{Prueba con 'ab'}
+    \end{minipage}
+	\begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a13.png}
+        \caption*{Prueba con 'ba'}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a14.png}
+        \caption*{Prueba con 'aba'}
+    \end{minipage}
+	\begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a15.png}
+        \caption*{Prueba con 'aaba'}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a16.png}
+        \caption*{Prueba con 'aabaa'}
+    \end{minipage}
+\end{figure}
+
+	Ahora probaremos con cadenas que no pertenecen al lenguaje como $L=\{bab,baab,aabaab,bb,bba\}$
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a17.png}
+        \caption*{Prueba con 'bab'}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a18.png}
+        \caption*{Prueba con 'baab'}
+    \end{minipage}
+	\begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a19.png}
+        \caption*{Prueba con 'aabaab'}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a110.png}
+        \caption*{Prueba con 'bb'}
+    \end{minipage}
+	\begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a111.png}
+        \caption*{Prueba con 'bba'}
+    \end{minipage}
+    \hfill
+\end{figure}
+
+	Por último se prueba la cadena vacía y símbolos fuera del alfabeto
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a112.png}
+        \caption*{Prueba con cadena vacía}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a113.png}
+        \caption*{Prueba con símbolos fuera del alfabeto}
+    \end{minipage}
+\end{figure}
+
+	\subsection*{Autómata 2}
+	El primer paso es tener la lista de cadenas que pertenecen al lenguaje. $L=\{bb,abb,bba,abba,aaabb,bbaaaa\}$, ahora se prueba una a una las cadenas en el programa.
+
+	\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a21.png}
+        \caption*{Prueba con 'bb'}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a22.png}
+        \caption*{Prueba con 'abb'}
+    \end{minipage}
+	\begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a23.png}
+        \caption*{Prueba con 'bba'}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a24.png}
+        \caption*{Prueba con 'abba'}
+    \end{minipage}
+	\begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a25.png}
+        \caption*{Prueba con 'aaabb'}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a26.png}
+        \caption*{Prueba con 'bbaaaa'}
+    \end{minipage}
+\end{figure}
+
+	Ahora probaremos con cadenas que no pertenecen al lenguaje como $L=\{ba,aba,bbb,bbba,abbb\}$
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a27.png}
+        \caption*{Prueba con 'ba'}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a28.png}
+        \caption*{Prueba con 'aba'}
+    \end{minipage}
+	\begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a29.png}
+        \caption*{Prueba con 'bbb'}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a210.png}
+        \caption*{Prueba con 'bbba'}
+    \end{minipage}
+	\begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a211.png}
+        \caption*{Prueba con 'abbb'}
+    \end{minipage}
+    \hfill
+\end{figure}
+
+	Por último se prueba la cadena vacía y símbolos fuera del alfabeto
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a112.png}
+        \caption*{Prueba con cadena vacía}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a113.png}
+        \caption*{Prueba con símbolos fuera del alfabeto}
+    \end{minipage}
+\end{figure}
+
+	\subsection*{Autómata 3}
+	El primer paso es tener la lista de cadenas que pertenecen al lenguaje. $L=\{\lambda,a,b,aabb,aa,bb\}$, ahora se prueba una a una las cadenas en el programa.
+
+	\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a31.png}
+        \caption*{Prueba con cadena vacía}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a32.png}
+        \caption*{Prueba con 'a'}
+    \end{minipage}
+	\begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a33.png}
+        \caption*{Prueba con 'b'}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a34.png}
+        \caption*{Prueba con 'aabb'}
+    \end{minipage}
+	\begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a35.png}
+        \caption*{Prueba con 'aa'}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a36.png}
+        \caption*{Prueba con 'bb'}
+    \end{minipage}
+\end{figure}
+
+	Ahora probaremos con cadenas que no pertenecen al lenguaje como $L=\{ba,aba,bab,bbba,abbba\}$
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a37.png}
+        \caption*{Prueba con 'ba'}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a38.png}
+        \caption*{Prueba con 'aba'}
+    \end{minipage}
+	\begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a39.png}
+        \caption*{Prueba con 'bab'}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a310.png}
+        \caption*{Prueba con 'bbba'}
+    \end{minipage}
+	\begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a311.png}
+        \caption*{Prueba con 'abbba'}
+    \end{minipage}
+    \hfill
+\end{figure}
+
+	Por último se prueba la cadena vacía y símbolos fuera del alfabeto
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a31.png}
+        \caption*{Prueba con cadena vacía}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a113.png}
+        \caption*{Prueba con símbolos fuera del alfabeto}
+    \end{minipage}
+\end{figure}
+
+	\subsection*{Autómata 4}
+	El primer paso es tener la lista de cadenas que pertenecen al lenguaje. $L=\{bb,abb,bab,bba,aabaabaa\}$, ahora se prueba una a una las cadenas en el programa.
+
+	\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a41.png}
+        \caption*{Prueba con 'bb'}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a42.png}
+        \caption*{Prueba con 'abb'}
+    \end{minipage}
+	\begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a43.png}
+        \caption*{Prueba con 'bab'}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a44.png}
+        \caption*{Prueba con 'bba'}
+    \end{minipage}
+	\begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a45.png}
+        \caption*{Prueba con 'aabaabaa'}
+    \end{minipage}
+\end{figure}
+
+	Ahora probaremos con cadenas que no pertenecen al lenguaje como $L=\{ba,aba,babb,bbba,abbba\}$
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a37.png}
+        \caption*{Prueba con 'ba'}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a38.png}
+        \caption*{Prueba con 'aba'}
+    \end{minipage}
+	\begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a46.png}
+        \caption*{Prueba con 'babb'}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a310.png}
+        \caption*{Prueba con 'bbba'}
+    \end{minipage}
+	\begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a311.png}
+        \caption*{Prueba con 'abbba'}
+    \end{minipage}
+    \hfill
+\end{figure}
+
+	Por último se prueba la cadena vacía y símbolos fuera del alfabeto
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a31.png}
+        \caption*{Prueba con cadena vacía}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/a113.png}
+        \caption*{Prueba con símbolos fuera del alfabeto}
+    \end{minipage}
+\end{figure}
+	
 	\section*{Relación entre Especificación Formal e Implementación}
 	La implementación en C refleja fielmente la teoría de autómatas mediante los siguientes mapeos de componentes:
 	

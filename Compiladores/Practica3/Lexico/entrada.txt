@@ -1,0 +1,9 @@
+entero x;
+x = 0;
+mientras (x < 5) entonces
+x = x + 1;
+si (x == 3) entonces
+imprimir x;
+finSi
+finMientras
+imprimir x;

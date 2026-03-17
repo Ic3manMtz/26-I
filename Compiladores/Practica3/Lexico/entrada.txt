@@ -1,9 +1,17 @@
-entero x;
-x = 0;
-mientras (x < 5) entonces
-x = x + 1;
-si (x == 3) entonces
-imprimir x;
+## Esto es un comentario de línea
+entero x = 10;  #* comentario de bloque *#
+imprimir("Hola mundo");
+x = x + 3.14 - 2 * 5 / 7 % 3;
+si (x > 0) entonces
+    contador = 0;
+    mientras contador < 10:
+        contador = contador + 1;
+    finMientras
 finSi
-finMientras
-imprimir x;
+
+#* Este es un comentario de bloque
+   que ocupa varias líneas
+   y debe ser ignorado *# 
+
+cadena texto = "Esto es una cadena con símbolos: ;:(){}[] y números 123";
+otro = "cadena sin cerrar

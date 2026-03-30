@@ -151,8 +151,7 @@ class AnalizadorLexico:
             return palabras[lexeme]
 
         return None
-
-
+    
     # Método que analiza el código y genera la lista de tokens
     def crearLista(self):
         index = 0
@@ -191,7 +190,7 @@ class AnalizadorLexico:
                     t = Token.Token(TipoToken.CADENA, None, lexema, self.numLinea)
                     self.L.append(t)
                 elif grupo == "CADENA_ERROR":
-                    print(f"ERROR_LEXICO en línea {self.numLinea}: cadena no cerrada: {lexema}")
+                    raise AlexError("Cadena no cerrada",self.numLinea, lexema)
 
                 # Numeros
                 elif grupo == "NUMERO_REAL":
@@ -232,7 +231,14 @@ class AnalizadorLexico:
 
                 # Error lexico
                 elif grupo == "ERROR_LEXICO":
-                    print(f"ERROR_LEXICO en línea {self.numLinea}: Simbolo no reconocido: {lexema}")
-
+                    raise AlexError("Simbolo no reconocido", self.numLinea, lexema)
 
                 index = match.end()
+
+
+class AlexError(Exception):
+    def __init__(self, mensaje, linea, lexema):
+        self.mensaje = mensaje
+        self.linea = linea
+        self.lexema = lexema
+        super().__init__(f"En línea {self.linea}. {self.mensaje}: {self.lexema}")

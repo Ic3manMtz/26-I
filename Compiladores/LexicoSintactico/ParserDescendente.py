@@ -1,6 +1,6 @@
 # ParserDescendente.py
 
-from Alex import AnalizadorLexico
+from Alex import AnalizadorLexico, AlexError
 import TipoToken
 from SubtipoToken import *
 
@@ -13,6 +13,7 @@ class Parser:
     def __init__(self, archivo):
         self.lexer = AnalizadorLexico(archivo)
         self.lexer.crearLista()
+        self.total_tokens = len(self.lexer.L)
         self.token_actual = self.lexer.obtenerToken()
 
     # =========================
@@ -20,7 +21,7 @@ class Parser:
     # =========================
     def error(self, msg="Error sintáctico"):
         raise Exception(
-            f"{msg} en línea {self.token_actual.getnumLinea()} -> {self.token_actual.getlexema()}"
+            f"{msg} en línea {self.token_actual.getnumLinea()-1} -> {self.token_actual.getlexema()}"
         )
 
     # =========================
@@ -30,7 +31,7 @@ class Parser:
 
         if (self.token_actual.getTipo() == tipo and
            (subtipo is None or self.token_actual.getSubType() == subtipo) and
-           (lexema is None or self.token_actual.getLexema() == lexema)):
+           (lexema is None or self.token_actual.getlexema() == lexema)):
 
             self.token_actual = self.lexer.obtenerToken()
         else:
@@ -65,7 +66,7 @@ class Parser:
         #  Guardamos token anterior para detectar loops
         token_anterior = self.token_actual
 
-        if self.token_actual.getSubType() in [ENTERO_PR, REAL_PR]:
+        if self.token_actual.getSubType() in [ENTERO_PR, REAL]:
             self.declaracion()
         elif self.token_actual.getTipo() == TipoToken.IDENTIFICADOR:
             self.asignacion()
@@ -298,7 +299,10 @@ if __name__ == "__main__":
         parser = Parser(archivo)
         parser.programa()
 
-        print("Programa válido")
+        print(f"\nTokens generados: {parser.total_tokens}")
+        print("Programa válido\n")
 
+    except AlexError as e:
+        print(f"Error léxico: {e}")
     except Exception as e:
-        print("ERROR:", e)
+        print(f"Error sintáctico: {e}")

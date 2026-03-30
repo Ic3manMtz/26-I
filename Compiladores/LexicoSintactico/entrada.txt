@@ -2,7 +2,7 @@ entero x ;
 real y ;
 
 x = 5 ;
-y = 3.14 ;
+y = 3.14 
 
 si x > 0 entonces
     x = x + 1 ;
@@ -13,6 +13,6 @@ hacer
     x = x + 1 ;
 finMientras
 
-para i = 0 hasta 5 
+para i = 0 hasta 5 entonces
     x = x + i ;
 finPara

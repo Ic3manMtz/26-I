@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# Operadores aritmeticos
+# Operadores aritmticos
 OPERADOR_SUMA = "+"
 OPERADOR_RESTA = "-"
 OPERADOR_MULTIPLICACION = "*"

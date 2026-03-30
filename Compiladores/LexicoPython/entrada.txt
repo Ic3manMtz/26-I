@@ -1,0 +1,15 @@
+## Este es un comentario de línea
+#* Este es un
+   comentario de bloque *#
+
+entero x
+x = 10 + 3.14
+si x >= 5 entonces
+    imprimir "hola mundo"
+finSi
+
+mientras x != 0
+    x = x - 1
+finMientras
+
+@ cadena_sin_cerrar = "hola
